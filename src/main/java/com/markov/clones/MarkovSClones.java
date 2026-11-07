@@ -1,11 +1,11 @@
 package com.markov.clones;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.minecraft.resources.Identifier;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.markov.clones.entity.ModEntityTypes;
 
 public class MarkovSClones implements ModInitializer {
     public static final String MOD_ID = "markovs-clones";
@@ -13,9 +13,7 @@ public class MarkovSClones implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ServerPlayerEvents.JOIN.register(player -> {
-            LOGGER.info("Player joined: {}", player.getName().getString());
-        });
+        ModEntityTypes.initialize();
 
         LOGGER.info("Markov's Clones loaded!");
     }
